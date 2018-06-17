@@ -8,7 +8,7 @@ test:
   runner_options:
   av_runner_options: '--long'
 
-freeze:
-  entry_point: 'elib_logging/__main__.py'
-  # data_files:
-    # - 'elib_logging/images;/images'
+#freeze:
+#  entry_point: 'elib_logging/__main__.py'
+#  # data_files:
+#    # - 'elib_logging/images;/images'
