@@ -1,0 +1,14 @@
+package: 'elib_logging'
+
+doc:
+  repo: 'https://github.com/132nd-etcher/elib_logging-doc.git'
+  folder: './doc'
+
+test:
+  runner_options:
+  av_runner_options: '--long'
+
+freeze:
+  entry_point: 'elib_logging/__main__.py'
+  # data_files:
+    # - 'elib_logging/images;/images'
