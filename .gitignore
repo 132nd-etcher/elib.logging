@@ -22,3 +22,4 @@ esme.yml
 .hypothesis/
 /scratch.py
 .eggs
+/elib_logging.egg-info/
