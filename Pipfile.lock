@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ac5216f181d2bbfc5ec8bbaeb8e0e24aab33d1b2502b152c53444bc8fd526436"
+            "sha256": "35b408d38b67a1cd79b4f6072d604342d391c9292756df5c149a53914cf16d9f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -15,16 +15,7 @@
             }
         ]
     },
-    "default": {
-        "dataclasses": {
-            "hashes": [
-                "sha256:454a69d788c7fda44efd71e259be79577822f5e3f53f029a22d08004e951dc9f",
-                "sha256:6988bd2b895eef432d562370bb707d540f32f7360ab13da45340101bc2307d84"
-            ],
-            "index": "pypi",
-            "version": "==0.6"
-        }
-    },
+    "default": {},
     "develop": {
         "apipkg": {
             "hashes": [
@@ -146,10 +137,10 @@
         },
         "epab": {
             "hashes": [
-                "sha256:46d59fc8164e5e8c8632410ed20f0e4f1903ba7e6d5ecb8a61adcba96cfd4784"
+                "sha256:da773c3f1a132232c64e410eff7e1d5940700c502d16e615639ee3d6122fe5ec"
             ],
             "index": "pypi",
-            "version": "==2018.6.16.1"
+            "version": "==2018.6.17.1"
         },
         "execnet": {
             "hashes": [
