@@ -23,3 +23,5 @@ esme.yml
 /scratch.py
 .eggs
 /elib_logging.egg-info/
+*.spec
+*.egg-info/
