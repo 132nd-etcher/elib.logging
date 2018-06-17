@@ -1,8 +1,9 @@
 # coding=utf-8
 
+import logging as base_logging
 import threading
 from pathlib import Path
-import logging as base_logging
+
 import elib_logging
 import elib_logging.logger
 import elib_logging.settings
@@ -39,4 +40,3 @@ def test_thread(caplog):
     assert log_file.exists()
     assert 'test message' in log_file.read_text()
     assert f'{elib_logging.settings.logger_name()}.thread.test_thread' in log_file.read_text()
-

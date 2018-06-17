@@ -1,13 +1,15 @@
 # coding=utf-8
-import sys
-import multiprocessing
-from concurrent import futures
-import pytest
 import logging as base_logging
-from mockito import when, verifyStubbedInvocationsAreUsed, mock
+import multiprocessing
+import sys
+from concurrent import futures
 from pathlib import Path
-import elib_logging.logger
+
+import pytest
+from mockito import mock, verifyStubbedInvocationsAreUsed, when
+
 import elib_logging.exc
+import elib_logging.logger
 import elib_logging.settings
 
 
@@ -53,4 +55,3 @@ def test_subprocess(logging_queue):
     log_file = Path(log_dir.joinpath(f'{elib_logging.settings.logger_name()}.subprocess.test_subprocess.log'))
     assert log_file.exists()
     assert 'test message' in log_file.read_text()
-

@@ -1,4 +1,7 @@
 # coding=utf-8
+"""
+Handles the creation of logger objects
+"""
 import logging
 import multiprocessing
 import sys
@@ -13,13 +16,16 @@ from elib_logging.remove_old_logs import remove_old_log_files
 from elib_logging.rotate_logs import rotate_logs
 
 
-def get_log_file_path(logger_name: str, log_folder_path: typing.Optional[str] = None) -> str:
-    log_folder = Path(log_folder_path or settings.log_dir()).absolute()
+def get_log_file_path(logger_name: str, log_folder_path_as_str: typing.Optional[str] = None) -> str:
+    """Returns the path to a log file"""
+    log_folder = Path(log_folder_path_as_str or settings.log_dir()).absolute()
     log_folder.mkdir(exist_ok=True)
-    return str(log_folder.joinpath(f'{logger_name}.log').absolute())
+    log_folder_path = Path(log_folder.joinpath(f'{logger_name}.log')).absolute()
+    return str(log_folder_path)
 
 
 def get_main_logger():
+    """Returns the main application logger"""
     logger = logging.getLogger(settings.logger_name())
     if logger.handlers:
         return logger
@@ -40,6 +46,7 @@ def get_main_logger():
 
 
 def get_thread_logger(thread_name: str):
+    """Returns a logger suited for a thread"""
     logger_name = f'{settings.logger_name()}.thread.{thread_name}'
     logger = logging.getLogger(logger_name)
     if logger.handlers:
@@ -54,6 +61,7 @@ def get_thread_logger(thread_name: str):
 
 
 def get_subprocess_logger(logging_queue: multiprocessing.JoinableQueue, subprocess_name: str):
+    """Returns a logger suited for a subprocess"""
     logger_name = f'{settings.logger_name()}.subprocess.{subprocess_name}'
     logger = logging.getLogger(logger_name)
     if logger.handlers:
@@ -68,13 +76,15 @@ def get_subprocess_logger(logging_queue: multiprocessing.JoinableQueue, subproce
 
 
 def get_logger(logging_queue: multiprocessing.JoinableQueue = None):
+    """Returns a logger depending on the current environment"""
     configure.check_settings()
-    if multiprocessing.current_process().name == 'MainProcess':
+    process_name = multiprocessing.current_process().name  # pylint: disable=not-callable
+    if process_name == 'MainProcess':
         if threading.current_thread().name == 'MainThread':
             return get_main_logger()
-        else:
-            return get_thread_logger(threading.current_thread().name)
-    else:
-        if logging_queue is None:
-            raise exc.MissingQueueError()
-        return get_subprocess_logger(logging_queue, multiprocessing.current_process().name)
+
+        return get_thread_logger(threading.current_thread().name)
+
+    if logging_queue is None:
+        raise exc.MissingQueueError()
+    return get_subprocess_logger(logging_queue, process_name)

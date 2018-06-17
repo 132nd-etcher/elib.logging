@@ -1,18 +1,21 @@
 # coding=utf-8
+"""
+Handles library configuration
+"""
+import os
 import sys
 import typing
-import os
-from elib_logging import settings, exc
+
+from elib_logging import exc, settings
 
 
-def setup_logging(
-    logger_name: str,
-    log_file_name: typing.Optional[str] = None,
-    log_dir: typing.Optional[str] = None,
-    log_format_console: typing.Optional[str] = None,
-    log_format_file: typing.Optional[str] = None,
-    backup_count: typing.Optional[int] = None,
-):
+def setup_logging(logger_name: str,
+                  log_file_name: typing.Optional[str] = None,
+                  log_dir: typing.Optional[str] = None,
+                  log_format_console: typing.Optional[str] = None,
+                  log_format_file: typing.Optional[str] = None,
+                  backup_count: typing.Optional[int] = None,):
+    """Configures elib_logging based on the current executable name"""
     values = [
         (f'{sys.executable}ELIB_LOGGING_LOGGER_NAME', logger_name),
         (f'{sys.executable}ELIB_LOGGING_LOG_FILE_NAME', log_file_name or logger_name),
@@ -26,6 +29,7 @@ def setup_logging(
 
 
 def check_settings():
+    """Raises LoggerNotSetupError if there are missing config values"""
     values = [
         f'{sys.executable}ELIB_LOGGING_LOGGER_NAME',
         f'{sys.executable}ELIB_LOGGING_LOG_FILE_NAME',
@@ -37,4 +41,3 @@ def check_settings():
     for val in values:
         if os.getenv(val) is None:
             raise exc.LoggerNotSetupError(f'missing value: {val}')
-

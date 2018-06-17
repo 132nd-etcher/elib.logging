@@ -21,3 +21,4 @@ esme.yml
 /.pytest_cache/
 .hypothesis/
 /scratch.py
+.eggs

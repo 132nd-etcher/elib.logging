@@ -1,4 +1,7 @@
 # coding=utf-8
+"""
+elib_logging exceptions
+"""
 
 
 class ELIBLoggingError(Exception):

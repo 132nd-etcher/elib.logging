@@ -1,6 +1,6 @@
 # coding=utf-8
 """
-Etcher's Simple Server Tools
+Logging library
 """
 
 from setuptools import find_packages, setup

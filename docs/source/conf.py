@@ -14,8 +14,8 @@
 #
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../..'))
 
+sys.path.insert(0, os.path.abspath('../..'))
 
 # -- Project information -----------------------------------------------------
 
@@ -27,7 +27,6 @@ author = '132nd-etcher'
 version = '2018.04.29.1'
 # The full version, including alpha/beta/rc tags
 release = '2018.04.29.1a1+feature/proc'
-
 
 # -- General configuration ---------------------------------------------------
 
@@ -76,7 +75,6 @@ exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
-
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -127,7 +125,6 @@ html_static_path = ['_static']
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'ESSTdoc'
 
-
 # -- Options for LaTeX output ------------------------------------------------
 
 latex_elements = {
@@ -156,7 +153,6 @@ latex_documents = [
      '132nd-etcher', 'manual'),
 ]
 
-
 # -- Options for manual page output ------------------------------------------
 
 # One entry per manual page. List of tuples
@@ -165,7 +161,6 @@ man_pages = [
     (master_doc, 'esst', 'ESST Documentation',
      [author], 1)
 ]
-
 
 # -- Options for Texinfo output ----------------------------------------------
 
@@ -177,7 +172,6 @@ texinfo_documents = [
      author, 'ESST', 'One line description of project.',
      'Miscellaneous'),
 ]
-
 
 # -- Extension configuration -------------------------------------------------
 
@@ -196,7 +190,7 @@ todo_include_todos = True
 nitpicky = True
 
 # A list of (type, target) tuples (by default empty) that should be ignored when generating warnings in
-# ‚Äúnitpicky mode‚Äù. Note that type should include the domain name if present. Example entries would be
+# ìnitpicky modeî. Note that type should include the domain name if present. Example entries would be
 # ('py:func', 'int') or ('envvar', 'LD_LIBRARY_PATH').
 nitpick_ignore = [('py:class', 'esst.core.agent.agent_loop_args.AgentLoopArgs')]
 
@@ -208,4 +202,3 @@ numfig = True
 # numbers. As a special character, %s will be replaced to figure number. Default is to use 'Fig. %s' for 'figure',
 # 'Table %s' for 'table', 'Listing %s' for 'code-block' and 'Section' for 'section'.
 # numfig_format
-

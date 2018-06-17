@@ -1,4 +1,7 @@
 # coding=utf-8
+"""
+Handles settings retrieval from os.environ
+"""
 import os
 import sys
 
@@ -27,24 +30,30 @@ def _get_value(val_name) -> str:
 
 
 def logger_name() -> str:
+    """Returns the main logger name"""
     return _get_value('ELIB_LOGGING_LOGGER_NAME')
 
 
 def log_file_name() -> str:
+    """Returns the name of the base log file"""
     return _get_value('ELIB_LOGGING_LOG_FILE_NAME')
 
 
 def log_dir() -> str:
+    """Returns the logs folder"""
     return _get_value('ELIB_LOGGING_LOG_DIR')
 
 
 def log_format_console() -> str:
+    """Returns the format strings for console records"""
     return _get_value('ELIB_LOGGING_LOG_FORMAT_CONSOLE')
 
 
 def log_format_file() -> str:
+    """Returns the format string for file records"""
     return _get_value('ELIB_LOGGING_LOG_FORMAT_FILE')
 
 
-def back_count() -> str:
+def backup_count() -> str:
+    """Returns the amount of log files to keep"""
     return _get_value('ELIB_LOGGING_BACKUP_COUNT')
