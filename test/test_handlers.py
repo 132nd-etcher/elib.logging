@@ -11,7 +11,7 @@ def test_handlers():
     logger = elib_logging.logger.get_main_logger()
     assert len(logger.handlers) == 2
     for handler in logger.handlers:
-        assert (isinstance(handler, base_logging.FileHandler) or isinstance(handler, base_logging.StreamHandler))
+        assert isinstance(handler, (base_logging.FileHandler, base_logging.StreamHandler))
 
 
 def test_get_handlers_with_formatter():
