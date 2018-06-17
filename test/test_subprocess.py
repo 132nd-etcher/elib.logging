@@ -1,8 +1,6 @@
 # coding=utf-8
 import logging as base_logging
 import multiprocessing
-import sys
-from concurrent import futures
 from pathlib import Path
 
 import pytest
