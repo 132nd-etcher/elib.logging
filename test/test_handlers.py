@@ -1,6 +1,7 @@
 # coding=utf-8
 import logging as base_logging
 import sys
+import time
 
 import elib_logging.handlers
 import elib_logging.logger
@@ -26,6 +27,7 @@ def test_queued_handler(logging_queue):
     logger = elib_logging.logger.get_subprocess_logger(logging_queue, 'test_queued_handler')
     assert logging_queue.empty()
     logger.debug('test')
+    time.sleep(0.1)
     assert not logging_queue.empty()
     element = logging_queue.get()
     assert isinstance(element, base_logging.LogRecord)
